@@ -2,7 +2,9 @@ import axios from "axios";
 import { toast } from "react-toastify";
 
 // 🌐 Backend Laravel
-const baseURL = "http://localhost:8000/api";
+// const baseURL = "http://localhost:8000/api";
+// 🌐 Base URL via env
+const baseURL = import.meta.env.VITE_API_BASE_URL;
 
 // 🔧 Axios instance
 const api = axios.create({
