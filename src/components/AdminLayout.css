@@ -1,0 +1,134 @@
+/* 🔝 Navbar tetap di atas */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 56px;
+  background: linear-gradient(to right, #1a1a2e, #16213e);
+  color: #fff;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  padding: 0 1rem;
+}
+
+/* 📚 Sidebar tetap di kiri */
+.sidebar {
+  position: fixed;
+  top: 56px;
+  left: 0;
+  width: 230px;
+  height: calc(100vh - 56px);
+  overflow-y: auto;
+  background-color: #f8f9fa;
+  transition: width 0.3s ease;
+  z-index: 999;
+}
+
+/* Sidebar collapsed */
+.sidebar.collapsed {
+  width: 70px;
+}
+
+.sidebar.collapsed h5,
+.sidebar.collapsed .nav-link span {
+  display: none;
+}
+
+/* 📦 Area konten */
+.content-area {
+  margin-top: 56px;
+  margin-left: 230px;
+  padding: 32px 24px;
+  min-height: calc(100vh - 56px);
+  width: calc(100vw - 230px);
+  background-color: #f9fafa;
+  transition: margin-left 0.3s ease, width 0.3s ease;
+}
+
+.sidebar.collapsed {
+  width: 70px;
+}
+
+/* 🌐 NavLink aktif */
+.nav-link {
+  font-size: 15px;
+  margin-bottom: 8px;
+  padding: 6px 10px;
+  color: #1a2035;
+  text-decoration: none;
+  display: block;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.nav-link.active {
+  background-color: #eaf3ff;
+  border-left: 4px solid #0d6efd;
+  font-weight: bold;
+  padding-left: 12px;
+  color: #0d6efd;
+}
+
+.nav-link:hover {
+  background-color: #f1f1f1;
+  color: #0a58ca;
+}
+
+/* 📱 Responsif Mobile */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    top: 0;
+    position: relative;
+  }
+
+  .content-area {
+    margin-left: 0;
+    padding: 16px;
+    width: 100vw;
+  }
+
+  .sidebar {
+    display: none;
+  }
+
+  /* Jika sidebar pakai .collapsed (aktif nanti) */
+  .collapsed-content {
+    margin-left: 75px;
+  }
+
+  /* Responsif mobile */
+  @media (max-width: 768px) {
+    .content-area {
+      margin-left: 0;
+      padding: 16px;
+      width: 100vw;
+    }
+  }
+  .sidebar.collapsed {
+    width: 0; /* sembunyikan sidebar saat collapsed */
+  }
+  .collapsed-content {
+    margin-left: 0;
+    margin-top: 56px;
+    width: 100%;
+    padding: 16px;
+  }
+
+  .navbar {
+    padding: 0 0.5rem;
+  }
+}
+
+/* 🔠 Branding dan tombol di navbar */
+.navbar .btn {
+  font-size: 0.85rem;
+}
+
+.navbar-brand {
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+}
